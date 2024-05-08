@@ -1,0 +1,36 @@
+type Exercise {
+  id: Int!
+  title: String
+  time: Int
+  kcal: Int
+}
+
+type Meal {
+  id: Int!
+  title: String
+  kcal: Int
+}
+
+type BodyStats {
+  weight: Int
+  height: Int
+  bmi: Float
+}
+
+type Query {
+  exercises: [Exercise]!
+  meals: [Meal]!
+  bodyStats: BodyStats
+}
+
+type Mutation {
+  addExercise(title: String, time: Int, kcal: Int): Exercise
+  addMeal(title: String, kcal: Int): Meal
+  addBodyStats(weight: Int, height: Int): BodyStats
+  editExercise(id: Int, title: String, time: Int, kcal: Int): Exercise
+  editMeal(id: Int, title: String, kcal: Int): Meal
+  editBodyStats(weight: Int, height: Int): BodyStats
+  deleteExercise(id: Int): Exercise
+  deleteMeal(id: Int): Meal
+  resetBodyStats: BodyStats
+}
